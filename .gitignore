@@ -1,0 +1,13 @@
+# Ignore all files in the CT/data directory
+CT/data/
+
+# Ignore MRI data directories
+MRI/data/
+MRI/datacropped/
+
+# Ignore US data directory
+US/data/
+
+# Ignore specific X_Ray file
+X_Ray/Planar X-ray groupA1.nii.gz
+
