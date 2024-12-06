@@ -10,7 +10,7 @@ path = 'MRI/datacropped/'
 v1_info = nib.load(path + '3D_T1w_20240920074836_A1B1.nii.gz').header
 v1 = nib.load(path + '3D_T1w_20240920074836_A1B1.nii.gz').get_fdata()
 
-print(v1_info)
+#print(v1_info)
 
 print(v1_info['pixdim'])
 
@@ -109,7 +109,7 @@ sagittal_z_start, sagittal_z_end = int(sagittal_z_mm_start / voxel_size[2]), int
 
 # Adjust and display Axial slice
 axial_slice_cropped = v1[axial_x_start:axial_x_end, axial_y_start:axial_y_end, slice_index]
-plt.imshow(axial_slice_cropped.T, cmap='gray', origin='lower')
+plt.imshow(axial_slice_cropped.T, cmap='gray', origin='lower', extent=extent)
 plt.title('Object 3 Axial Slice')
 plt.xlabel('mm (x-axis)')
 plt.ylabel('mm (y-axis)')
@@ -117,7 +117,7 @@ plt.show()
 
 # Adjust and display Coronal slice
 coronal_slice_cropped = v1[coronal_x_start:coronal_x_end, coronal_slice_index, coronal_z_start:coronal_z_end]
-plt.imshow(coronal_slice_cropped.T, cmap='gray', origin='lower')
+plt.imshow(coronal_slice_cropped.T, cmap='gray', origin='lower', extent=extent)
 plt.title('Object 3 Coronal Slice')
 plt.xlabel('mm (x-axis)')
 plt.ylabel('mm (z-axis)')
@@ -125,7 +125,7 @@ plt.show()
 
 # Adjust and display Sagittal slice
 sagittal_slice_cropped = v1[sagittal_slice_index, sagittal_y_start:sagittal_y_end, sagittal_z_start:sagittal_z_end]
-plt.imshow(sagittal_slice_cropped.T, cmap='gray', origin='lower')
+plt.imshow(sagittal_slice_cropped.T, cmap='gray', origin='lower', extent=extent)
 plt.title('Object 3 Sagittal Slice')
 plt.xlabel('mm (y-axis)')
 plt.ylabel('mm (z-axis)')
